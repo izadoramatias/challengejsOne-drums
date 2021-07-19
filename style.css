@@ -1,0 +1,95 @@
+:root{
+    /* COLORS */
+    --bg-color: #030302;
+    --key-battery-color: 
+    #6a1aec;
+    --bg-inputButton-color: #edf0f2;
+    --activekey-Color: #8a42f5;
+    
+    /* FONTS */
+    --h1-fontDefinition: bold 2.5rem 'Poppins', sans-serif;
+    --key-fontDefinition: bolder 1.875rem 'Poppins', sans-serif;
+    --input-fontDefinition: normal 1rem 'Poppins', sans-serif;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    max-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    color: #FFF;
+    margin-bottom: 1.25rem;
+    font: var(--h1-fontDefinition);
+}
+.keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.625rem;
+}
+.key {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid #FFF;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: var(--key-fontDefinition);
+}
+.key.active {
+    border: 2px solid var(--activekey-Color);
+    color: var(--activekey-Color);
+}
+
+.composer {
+    width: 16.25rem;
+    margin-top: 1.25rem;
+}
+.composer #input {
+    width: 100%;
+    outline: none;
+    font: var(--input-fontDefinition);
+    padding: 0.625rem 1rem;
+    border-radius: 1rem;
+}
+
+.composer button {
+    width: 100%;
+    height: 2.5rem;
+    background: var(--bg-inputButton-color);
+    color: var(--key-battery-color);
+    font: var(--input-fontDefinition);
+    border-radius: 1rem;
+    margin-top: 0.625rem;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.composer button:hover {
+    background-color: var(--key-battery-color);
+    color: var(--bg-inputButton-color);
+}
+
+footer {
+    margin-top: 1.25rem;
+    color: #FFF;
+    font-size: 0.8125rem;
+}
+
