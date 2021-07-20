@@ -41,20 +41,65 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.625rem;
+
 }
 .key {
     width: 5rem;
     height: 5rem;
-    border: 2px solid #FFF;
+    /* border: 2px solid #FFF; */
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     font: var(--key-fontDefinition);
+
+    position: relative;
 }
-.key.active {
+
+.key::before,
+.key::after{
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
     border: 2px solid var(--activekey-Color);
-    color: var(--activekey-Color);
+}
+
+.key::before{
+    border-left: none;
+    border-bottom: none;
+    left: 0;
+    top: 0;
+    transition: width 100ms linear 1.5s, height 100ms linear 1s, opacity .1s 2s;
+}
+
+.key::after{
+    border-top: none;
+    border-right: none;
+    right: 0;
+    bottom: 0;
+    transition: width 100ms linear 100ms, height 100ms linear, opacity .1s 1s;
+}
+
+
+.key.active::before, 
+.key.active::after {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.key.active::before{
+    transition: width 200ms linear, height 200ms linear 200ms, opacity .1s;  
+}
+
+.key.active::after{
+    transition: width 200ms linear 10ms, height 200ms linear 200ms, opacity .1s 50ms;
 }
 
 .composer {
